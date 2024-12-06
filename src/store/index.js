@@ -1,9 +1,9 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { count: 0, showCounter: true };
+const initialState = { count: 0, showing: true };
 
 const countSlice = createSlice({
-  name: "count",
+  name: "counter",
   initialState,
   reducers: {
     increment(state) {
@@ -17,17 +17,18 @@ const countSlice = createSlice({
       state.count--;
     },
     increase(state, action) {
-      state.count = state.count + action.amount;
+      state.count = state.count + action.payload;
     },
     toggle(state) {
-      state.showCounter = !state.showCounter;
+      state.showing = !state.showing;
     },
   },
 });
 
 // configureStore를 이용하여 모든 리듀서를 하나의 큰 리듀서로 병합
 const store = configureStore({
-  reducer: { counter: countSlice.reducer },
+  reducer: countSlice.reducer,
 });
 
+export const countActions = countSlice.actions;
 export default store;
