@@ -1,2 +1,4 @@
-- 내부 컴포넌트에서 Action Dispatch
-- 작업에 페이로드 연결
+내부 컴포넌트에서 Action Dispatch
+
+다음 목표
+payload 연결
