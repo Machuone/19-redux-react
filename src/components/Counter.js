@@ -8,8 +8,7 @@ const Counter = () => {
   const showing = useSelector((state) => state.showing);
   const dispatch = useDispatch();
 
-  console.log(count);
-
+  // 왜 잔디 안심어짐
   const increaseHandler = (amount) => {
     dispatch(countActions.increase(amount));
   };
