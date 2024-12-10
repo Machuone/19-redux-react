@@ -1,10 +1,11 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { count: 0, showing: true };
+const initialCounterState = { count: 0, showing: true };
+const initialAuthState = { isAuthenticated: false };
 
 const countSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: initialCounterState,
   reducers: {
     increment(state) {
       // 리덕스 툴킷에서 immer라는 패키지를 통해
@@ -25,10 +26,24 @@ const countSlice = createSlice({
   },
 });
 
+const authSlice = createSlice({
+  name: "auth",
+  initialState: initialAuthState,
+  reducers: {
+    login(state) {
+      state.isAuthenticated = true;
+    },
+    logout(state) {
+      state.isAuthenticated = false;
+    },
+  },
+});
+
 // configureStore를 이용하여 모든 리듀서를 하나의 큰 리듀서로 병합
 const store = configureStore({
-  reducer: countSlice.reducer,
+  reducer: { counter: countSlice.reducer, auth: authSlice.reducer },
 });
 
 export const countActions = countSlice.actions;
+export const authActions = authSlice.actions;
 export default store;

@@ -4,8 +4,8 @@ import { countActions } from "../store";
 
 const Counter = () => {
   const increaseAmount = 5;
-  const count = useSelector((state) => state.count);
-  const showing = useSelector((state) => state.showing);
+  const count = useSelector((state) => state.counter.count);
+  const showing = useSelector((state) => state.counter.showing);
   const dispatch = useDispatch();
 
   // 왜 잔디 안심어짐
