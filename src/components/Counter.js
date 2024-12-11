@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Counter.module.css";
-import { countActions } from "../store";
+import { countActions } from "../store/counter";
 
 const Counter = () => {
   const increaseAmount = 5;
